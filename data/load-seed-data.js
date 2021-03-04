@@ -27,10 +27,10 @@ async function run() {
     await Promise.all(
       favorites.map(book => {
         return client.query(`
-                    INSERT INTO favorites (bookId, img_url, title, summary, authors, published, pages, owner_id)
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
+                    INSERT INTO favorites (bookId, title, summary, authors, published, pages, owner_id)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7);
                 `,
-        [book.id, book.volumeInfo.imageLinks.thumbnail, book.volumeInfo.title, book.searchInfo.textSnippet, book.volumeInfo.authors, book.volumeInfo.publishedDate, book.volumeInfo.pageCount,  user.id]);
+        [book.id, book.volumeInfo.title, book.volumeInfo.description, book.volumeInfo.authors, book.volumeInfo.publishedDate, book.volumeInfo.pageCount,  user.id]);
       })
     );
     

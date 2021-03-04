@@ -22,9 +22,8 @@ async function run() {
                     title VARCHAR(512) NOT NULL,
                     summary VARCHAR(512) NOT NULL,
                     authors VARCHAR(512) NOT NULL,
-                    published INTEGER NOT NULL,
-                    pages INTEGER NOT NULL,
-                    img_url VARCHAR(512) NOT NULL,
+                    published VARCHAR(256)NOT NULL,
+                    pages VARCHAR(256) NOT NULL,
                     bookId VARCHAR(512) NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
